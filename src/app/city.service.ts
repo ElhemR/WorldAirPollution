@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CityService {
 
-  uri = 'http://localhost:4000/City';
+  uri = 'http://localhost:3000/cities';
 
   constructor(private http: HttpClient) { }
 
