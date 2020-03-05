@@ -24,8 +24,7 @@ export class CitiesComponent implements OnInit {
   constructor(private cs: CityService, private changeDetectorRefs: ChangeDetectorRef) { }
  
   ngOnInit() {
-    this.cs
-      .auth();
+ 
     this.getCities();
   
   }
