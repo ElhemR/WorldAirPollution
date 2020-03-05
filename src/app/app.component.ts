@@ -7,11 +7,12 @@ import { CityService } from './city.service';
 })
 export class AppComponent {
   title = 'worldairpollution';
-  constructor(private cs: CityService) { }
+  constructor(private cs: CityService) {
+    this.cs
+    .auth();}
 
   ngOnInit() {
-    this.cs
-      .auth();
+
    
 
   }

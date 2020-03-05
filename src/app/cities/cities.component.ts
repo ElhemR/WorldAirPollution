@@ -45,7 +45,7 @@ export class CitiesComponent implements OnInit {
 
   //Highlight aqindex background depending on values intervals. 
   getBackground(x: number) {
-    console.log(x);
+
     switch (true) {
       case (x <= 50):
         return "#009966"
@@ -89,7 +89,7 @@ export class CitiesComponent implements OnInit {
             const filters = JSON.parse(filtersJson);
 
             filters.forEach(filter => {
-              console.log(filtersJson);
+            
               const idfilter = filter.id;
 
               const val = data[filter.id] === null ? '' : data[filter.id];
@@ -98,7 +98,8 @@ export class CitiesComponent implements OnInit {
             return matchFilter.every(Boolean);
           };
         this.changeDetectorRefs.detectChanges();
-        console.log(this.cities);
+       
       });
   }
+
 }
