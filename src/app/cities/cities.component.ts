@@ -15,7 +15,7 @@ export class CitiesComponent implements OnInit {
 
   math = Math;
   cities: City[];
-  displayedColumns: string[] = ['cityname', 'qaindex','country','isocode' ,'population'];
+  displayedColumns: string[] = ['rank','cityname', 'qaindex','country','isocode' ,'population'];
 
   dataSource = new MatTableDataSource<object>(this.cities);
 
@@ -24,8 +24,10 @@ export class CitiesComponent implements OnInit {
   constructor(private cs: CityService, private changeDetectorRefs: ChangeDetectorRef) { }
  
   ngOnInit() {
-
+    this.cs
+      .auth();
     this.getCities();
+  
   }
   //Filter on Country Name
   applyFilter(filterValue: string) {

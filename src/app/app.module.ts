@@ -2,12 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CitiesComponent } from './cities/cities.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import { AuthInterceptorService } from './auth-interceptor.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -36,7 +36,7 @@ import { A11yModule } from '@angular/cdk/a11y';
     A11yModule
 
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
