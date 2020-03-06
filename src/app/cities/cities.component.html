@@ -1,9 +1,9 @@
 <div class="pagecontainer">
-
+  <button mat-raised-button (click)="openBottomSheet()">Open file</button>
   <div class="example-container">
     <h2 class="title">  Air Quality (AQI) City Ranking </h2>
     <div class="legend">
-      Legend: 
+      Legend:
       <span [style.background-color]="getBackground(1)"> Good </span>
       <span [style.background-color]="getBackground(51)"> Moderate </span>
       <span [style.background-color]="getBackground(101)"> Unhealthy for Sensitive Groups</span>
@@ -20,18 +20,22 @@
         </mat-form-field>
 
       </mat-toolbar-row>
-    
+
     </mat-toolbar>
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons class="mat-paginator-sticky"></mat-paginator>
     <mat-table #table matSort [dataSource]="dataSource" class="mat-elevation-z0" [class.isMobile]="isMobile">
+
+
 
       <ng-container matColumnDef="rank">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Rank </mat-header-cell>
         <mat-cell *matCellDef="let element">
           <span class="mobile-label">Rank: </span>
           {{element.rank}}
+
         </mat-cell>
       </ng-container>
+
       <ng-container matColumnDef="cityname">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
         <mat-cell *matCellDef="let element">
@@ -73,12 +77,14 @@
       </ng-container>
 
       <ng-container matColumnDef="qaindex">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Air Quality Index </mat-header-cell>
-        <mat-cell class="aqi" *matCellDef="let element">
+        <mat-header-cell *matHeaderCellDef> Air Quality Index </mat-header-cell>
+        <mat-cell *matCellDef="let element">
           <span class="mobile-label">AQI: </span>
           <span [style.background-color]="getBackground(element.qaindex)">{{element.qaindex}} </span>
         </mat-cell>
       </ng-container>
+
+
 
 
       <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>

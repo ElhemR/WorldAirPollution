@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort'; 
-
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 @Component({
   selector: 'app-cities',
   templateUrl: './cities.component.html',
@@ -21,8 +21,10 @@ export class CitiesComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  constructor(private cs: CityService, private changeDetectorRefs: ChangeDetectorRef) { }
- 
+  constructor(private cs: CityService, private changeDetectorRefs: ChangeDetectorRef, private _bottomSheet: MatBottomSheet) { }
+  openBottomSheet(): void {
+    this._bottomSheet.open(InfoSheet);
+  }
   ngOnInit() {
  
     this.getCities();
@@ -42,20 +44,7 @@ export class CitiesComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  //Filter air index
-  applyFilterQaindex(filterValue: string) {
-    const tableFilters = [];
-    tableFilters.push({
-      id: 'qaindex',
-      value: filterValue
-    });
-
-
-    this.dataSource.filter = JSON.stringify(tableFilters);
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
+ 
   //Highlight aqindex background depending on values intervals. 
   getBackground(x: number) {
 
@@ -116,4 +105,17 @@ export class CitiesComponent implements OnInit {
       });
   }
 
+}
+
+@Component({
+  selector: 'infosheet',
+  templateUrl: 'infosheet.html',
+})
+export class InfoSheet {
+  constructor(private _bottomSheetRef: MatBottomSheetRef<InfoSheet>) { }
+
+  openLink(event: MouseEvent): void {
+    this._bottomSheetRef.dismiss();
+    event.preventDefault();
+  }
 }

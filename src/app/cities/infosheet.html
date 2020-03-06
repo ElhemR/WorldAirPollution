@@ -1,0 +1,154 @@
+<style>
+  .mat-table {
+    display: block;
+    font-size: 12px;
+  }
+
+  .mat-row,
+  .mat-header-row {
+    display: flex;
+    border: 1px;
+    border: 1px solid #F0F0F0;
+
+    min-height: 20px;
+  
+  }
+
+  .mat-cell,
+  .mat-header-cell {
+    flex: 1;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+
+  .good {
+    background-color: #009966
+  }
+  .moderate {
+    background-color: #ffde33
+  }
+  .unhealthysg {
+    background-color: #ff9933;
+  }
+  .unhealthy {
+    background-color: #cc0033;
+  }
+  .vunhealthy {
+    background-color: #660099;
+  }
+  .hazardous {
+    background-color: #7e0023;
+  }
+
+</style>
+
+
+
+
+<h3> Air Quality Index (AQI) Calculation</h3>
+
+<p>
+  The Air Quality Index is based on measurement of particulate matter (PM2.5 and PM10), Ozone (O3), Nitrogen Dioxide (NO2), Sulfur Dioxide (SO2) and Carbon Monoxide (CO) emissions. Most of the stations on the map are monitoring both PM2.5 and PM10 data, but there are few exceptions where only PM10 is available.
+
+  All measurements are based on hourly readings: For instance, an AQI reported at 8AM means that the measurement was done from 7AM to 8AM.
+</p>
+
+<h3> Air Quality Scale</h3>
+
+
+<div class="mat-table">
+  <div class="mat-header-row">
+    <div class="mat-header-cell">AQI</div>
+    <div class="mat-header-cell">Air Pollution Level</div>
+    <div class="mat-header-cell">Health Implications</div>
+    <div class="mat-header-cell"> Cautionary Statement (for PM2.5)</div>
+
+  </div>
+  <div class="mat-row good">
+    <div class="mat-cell">
+      0 - 50
+    </div>
+    <div class="mat-cell">
+      Good
+    </div>
+    <div class="mat-cell">   Air quality is considered satisfactory, and air pollution poses little or no risk</div>
+    <div class="mat-cell">None</div>
+  </div>
+
+  <div class="mat-row moderate">
+    <div class="mat-cell">
+      51 -100
+    </div>
+    <div class="mat-cell">
+      Moderate
+    </div> <div class="mat-cell">
+      Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.
+    </div>
+    <div class="mat-cell">Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.</div>
+  </div>
+
+
+
+  <div class="mat-row unhealthysg">
+    <div class="mat-cell ">
+      101-150
+    </div>
+    <div class="mat-cell">
+      Unhealthy for Sensitive Groups
+    </div>
+    <div class="mat-cell">
+      Members of sensitive groups may experience health effects. The general public is not likely to be affected.
+    </div>
+    <div class="mat-cell">
+      Active children and adults, and people with respiratory disease, such as asthma, should limit prolonged outdoor exertion.
+    </div>
+  </div>
+
+
+  <div class="mat-row unhealthy">
+    <div class="mat-cell">
+      151-200
+    </div>
+    <div class="mat-cell">
+      Unhealthy
+    </div>
+    <div class="mat-cell">
+      Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects
+    </div>
+    <div class="mat-cell">
+      Active children and adults, and people with respiratory disease, such as asthma, should avoid prolonged outdoor exertion; everyone else, especially children, should limit prolonged outdoor exertion
+    </div>
+  </div>
+
+  <div class="mat-row vunhealthy">
+    <div class="mat-cell">
+      201-300
+    </div>
+    <div class="mat-cell">
+      Very Unhealthy
+    </div>
+    <div class="mat-cell">
+      Health warnings of emergency conditions. The entire population is more likely to be affected.
+    </div>
+    <div class="mat-cell">
+      Active children and adults, and people with respiratory disease, such as asthma, should avoid all outdoor exertion; everyone else, especially children, should limit outdoor exertion.
+    </div>
+  </div>
+
+
+
+  <div class="mat-row hazardous">
+    <div class="mat-cell">
+      300+
+    </div>
+    <div class="mat-cell">
+      Hazardous
+    </div>
+    <div class="mat-cell">
+      Health alert: everyone may experience more serious health effects
+    </div>
+    <div class="mat-cell">
+      Everyone should avoid all outdoor exertion
+    </div>
+  </div>
+</div>
