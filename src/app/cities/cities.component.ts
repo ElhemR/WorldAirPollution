@@ -42,7 +42,20 @@ export class CitiesComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  //Filter air index
+  applyFilterQaindex(filterValue: string) {
+    const tableFilters = [];
+    tableFilters.push({
+      id: 'qaindex',
+      value: filterValue
+    });
 
+
+    this.dataSource.filter = JSON.stringify(tableFilters);
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
   //Highlight aqindex background depending on values intervals. 
   getBackground(x: number) {
 
@@ -97,8 +110,9 @@ export class CitiesComponent implements OnInit {
             });
             return matchFilter.every(Boolean);
           };
+      
+   
         this.changeDetectorRefs.detectChanges();
-       
       });
   }
 

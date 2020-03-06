@@ -1,8 +1,17 @@
 <div class="pagecontainer">
 
   <div class="example-container">
-    <h2>  Air Quality (AQI) City Ranking </h2>
-
+    <h2 class="title">  Air Quality (AQI) City Ranking </h2>
+    <div class="legend">
+      Legend: 
+      <span [style.background-color]="getBackground(1)"> Good </span>
+      <span [style.background-color]="getBackground(51)"> Moderate </span>
+      <span [style.background-color]="getBackground(101)"> Unhealthy for Sensitive Groups</span>
+      <span [style.background-color]="getBackground(151)">Unhealthy</span>
+      <span [style.background-color]="getBackground(201)">Very Unhealthy</span>
+      <span [style.background-color]="getBackground(301)">Hazardous</span>
+    </div>
+    <br />
     <mat-toolbar>
       <mat-toolbar-row>
         <mat-form-field>
@@ -11,7 +20,7 @@
         </mat-form-field>
 
       </mat-toolbar-row>
-
+    
     </mat-toolbar>
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons class="mat-paginator-sticky"></mat-paginator>
     <mat-table #table matSort [dataSource]="dataSource" class="mat-elevation-z0" [class.isMobile]="isMobile">
@@ -66,7 +75,7 @@
       <ng-container matColumnDef="qaindex">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Air Quality Index </mat-header-cell>
         <mat-cell class="aqi" *matCellDef="let element">
-          <span class="mobile-label">Air Quality Index: </span>
+          <span class="mobile-label">AQI: </span>
           <span [style.background-color]="getBackground(element.qaindex)">{{element.qaindex}} </span>
         </mat-cell>
       </ng-container>
