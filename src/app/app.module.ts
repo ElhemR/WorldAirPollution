@@ -37,6 +37,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
     MatPaginatorModule,
     MatDividerModule,
     A11yModule,
+
     MatIconModule
   ],
   entryComponents: [CitiesComponent,

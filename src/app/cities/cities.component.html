@@ -1,15 +1,19 @@
 <div class="pagecontainer">
-  <button mat-raised-button (click)="openBottomSheet()">Open file</button>
+
   <div class="example-container">
     <h2 class="title">  Air Quality (AQI) City Ranking </h2>
+ 
+
     <div class="legend">
-      Legend:
+      Legend: <i class="fa fa-info-circle" (click)="openBottomSheet()"></i>
+     
       <span [style.background-color]="getBackground(1)"> Good </span>
       <span [style.background-color]="getBackground(51)"> Moderate </span>
       <span [style.background-color]="getBackground(101)"> Unhealthy for Sensitive Groups</span>
       <span [style.background-color]="getBackground(151)">Unhealthy</span>
       <span [style.background-color]="getBackground(201)">Very Unhealthy</span>
       <span [style.background-color]="getBackground(301)">Hazardous</span>
+
     </div>
     <br />
     <mat-toolbar>
